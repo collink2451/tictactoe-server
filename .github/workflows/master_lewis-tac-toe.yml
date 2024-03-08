@@ -41,6 +41,11 @@ jobs:
       url: ${{ steps.deploy-to-webapp.outputs.webapp-url }}
     permissions:
       id-token: write #This is required for requesting the JWT
+    env:
+      OAUTH_CLIENT_ID: ${{ vars.OAUTH_CLIENT_ID }}
+      OAUTH_CLIENT_SECRET: ${{ secrets.OAUTH_CLIENT_SECRET }}
+      OAUTH_CALLBACK_URL: ${{ vars.OAUTH_CALLBACK_URL }}
+      SECRET_KEY: ${{ secrets.SECRET_KEY }}
 
     steps:
       - name: Download artifact from build job
@@ -64,7 +69,7 @@ jobs:
           package: .
       - name: Set up environment variables
         run: |
-          echo "OAUTH_CLIENT_ID=${{ vars.OAUTH_CLIENT_ID }}" >> $GITHUB_ENV
-          echo "OAUTH_CLIENT_SECRET=${{ secrets.OAUTH_CLIENT_SECRET }}" >> $GITHUB_ENV
-          echo "OAUTH_CALLBACK_URL=${{ vars.OAUTH_CALLBACK_URL }}" >> $GITHUB_ENV
-          echo "SECRET_KEY=${{ secrets.SECRET_KEY }}" >> $GITHUB_ENV
+          echo "OAUTH_CLIENT_ID=${{ env.OAUTH_CLIENT_ID }}" >> $GITHUB_ENV
+          echo "OAUTH_CLIENT_SECRET=${{ env.OAUTH_CLIENT_SECRET }}" >> $GITHUB_ENV
+          echo "OAUTH_CALLBACK_URL=${{ env.OAUTH_CALLBACK_URL }}" >> $GITHUB_ENV
+          echo "SECRET_KEY=${{ env.SECRET_KEY }}" >> $GITHUB_ENV

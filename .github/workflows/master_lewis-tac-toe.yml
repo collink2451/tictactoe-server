@@ -37,7 +37,7 @@ jobs:
         with:
           name: node-app
           path: .
-            - name: Set up environment variables
+      - name: Set up environment variables
         run: |
           echo "OAUTH_CLIENT_ID=${{ env.OAUTH_CLIENT_ID }}" >> $GITHUB_ENV
           echo "OAUTH_CLIENT_SECRET=${{ env.OAUTH_CLIENT_SECRET }}" >> $GITHUB_ENV

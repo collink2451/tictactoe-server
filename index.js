@@ -10,6 +10,8 @@ const cors = require('cors');
 const bodyParser = require('body-parser');
 const fs = require('fs');
 const scoreboardFile = 'scoreboard.json';
+const dotenv = require('dotenv');
+dotenv.config();
 
 const {ensureAuthenticated} = require('./middleware');
 

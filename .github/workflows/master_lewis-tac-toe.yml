@@ -22,11 +22,20 @@ jobs:
           node-version: '20.x'
 
       - name: npm install, build, and test
+        env:
+          OAUTH_CLIENT_ID: ${{ vars.OAUTH_CLIENT_ID }}
+          OAUTH_CLIENT_SECRET: ${{ secrets.OAUTH_CLIENT_SECRET }}
+          OAUTH_CALLBACK_URL: ${{ vars.OAUTH_CALLBACK_URL }}
+          SECRET_KEY: ${{ secrets.SECRET_KEY }}
         run: |
-          echo OAUTH_CLIENT_ID=${{ vars.OAUTH_CLIENT_ID }} >> .env
-          echo OAUTH_CLIENT_SECRET=${{ secrets.OAUTH_CLIENT_SECRET }} >> .env
-          echo OAUTH_CALLBACK_URL="${{ vars.OAUTH_CALLBACK_URL }}" >> .env
-          echo SECRET_KEY="${{ secrets.SECRET_KEY }}" >> .env
+          echo "OAUTH_CLIENT_ID=${OAUTH_CLIENT_ID}" # Debug logging
+          echo "OAUTH_CLIENT_SECRET=${OAUTH_CLIENT_SECRET}" # Debug logging
+          echo "OAUTH_CALLBACK_URL=${OAUTH_CALLBACK_URL}" # Debug logging
+          echo "SECRET_KEY=${SECRET_KEY}" # Debug logging
+          echo OAUTH_CLIENT_ID=${OAUTH_CLIENT_ID} >> .env
+          echo OAUTH_CLIENT_SECRET=${OAUTH_CLIENT_SECRET} >> .env
+          echo OAUTH_CALLBACK_URL="${OAUTH_CALLBACK_URL}" >> .env
+          echo SECRET_KEY="${SECRET_KEY}" >> .env
           npm install
           npm run build --if-present
           npm run test --if-present

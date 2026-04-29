@@ -1,10 +1,9 @@
 {
-    "name": "app-service-hello-world",
-    "description": "Simple Hello World Node.js sample for Azure App Service",
-    "version": "0.0.1",
+    "name": "tictactoe-server",
+    "version": "1.0.0",
     "private": true,
     "license": "MIT",
-    "author": "Microsoft",
+    "author": "Collin Koldoff",
     "scripts": {
         "start": "nodemon -r dotenv/config index.js dotenv_config_path=.env"
     },

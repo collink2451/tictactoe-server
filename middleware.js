@@ -12,7 +12,7 @@ async function ensureAuthenticated(req, res, next) {
     const response = await axios.get('https://api.github.com/user', {
       headers: {
         Authorization: `Bearer ${accessToken}`,
-        'User-Agent': 'Lewis-Tac-Toe-Server'
+        'User-Agent': 'tictactoe-server'
       }
     });
     req.user = response.data;

@@ -1,6 +1,6 @@
-# Lewis Tic-Tac-Toe Server
+# Tic-Tac-Toe Server
 
-Node.js/Express backend for the Lewis Tic-Tac-Toe game. Handles GitHub OAuth authentication and a persistent leaderboard stored in MongoDB. Pairs with the [ReactTicTacToe](../ReactTicTacToe) frontend.
+Node.js/Express backend for the Lewis Tic-Tac-Toe game. Handles GitHub OAuth authentication and a persistent leaderboard stored in MongoDB. Pairs with the [tictactoe-client](../tictactoe-client) frontend.
 
 ## API Endpoints
 

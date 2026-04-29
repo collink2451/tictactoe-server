@@ -1,11 +1,11 @@
+const dotenv = require('dotenv');
+dotenv.config();
 const express = require('express');
 const app = express();
 const bodyParser = require('body-parser');
-const dotenv = require('dotenv');
 const db = require('./db');
 const LeaderBoardModel = require('./models/LeaderBoardModel');
 const { ensureAuthenticated } = require('./middleware');
-dotenv.config();
 db.connect();
 
 const port = process.env.PORT || 3000;

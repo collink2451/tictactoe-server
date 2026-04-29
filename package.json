@@ -5,7 +5,7 @@
     "license": "MIT",
     "author": "Collin Koldoff",
     "scripts": {
-        "start": "nodemon -r dotenv/config index.js dotenv_config_path=.env"
+        "start": "node index.js"
     },
     "dependencies": {
         "body-parser": "^1.20.2",
@@ -13,7 +13,6 @@
         "express": "^4.18.2",
         "mysql2": "^3.9.7"
     },
-    "devDependencies": {
-        "nodemon": "^3.1.0"
-    }
+    "devDependencies": {}
+
 }

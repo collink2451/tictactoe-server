@@ -6,7 +6,6 @@ const GitHubStrategy = require('passport-github').Strategy;
 const open = require('open')
 const { auth } = require('express-openid-connect');
 var url = require('url');
-const cors = require('cors');
 const bodyParser = require('body-parser');
 const fs = require('fs');
 const scoreboardFile = 'scoreboard.json';
@@ -23,8 +22,6 @@ var jsonParser = bodyParser.json()
 
 // Use Express to publish static HTML, CSS, and JavaScript files that run in the browser. 
 app.use(express.static(__dirname + '/static'))
-
-app.use(cors());
 
 app.use(session({
   secret: process.env.SECRET_KEY,
